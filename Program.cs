@@ -15,3 +15,37 @@
 [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 [“Russia”, “Denmark”, “Kazan”] → [] */
 
+int CountSpecialElements(string[] array)
+{
+    int count = 0;
+    foreach (string elem in array)
+    {
+        if (elem.Length <= 3)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+string[] CreateNewArray(string[] array, int len)
+{
+    string[] new_array = new string[len];
+    int i = 0;
+    foreach (string elem in array)
+    {
+        if (elem.Length <= 3) 
+        {
+            new_array[i] = elem;
+            i++;
+        }
+    }
+    return new_array;
+}
+
+string[] array = {"Hello", "2", "world", ":-)"};
+
+int count = CountSpecialElements(array);
+string[] new_array = CreateNewArray(array, count);
+
+Console.WriteLine("['" + string.Join("', '", new_array) + "']");
